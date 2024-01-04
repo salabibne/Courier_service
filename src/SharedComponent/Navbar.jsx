@@ -14,14 +14,14 @@ const Navbar = () => {
 
     </>
     return (
-        <div>
+        <div className="fixed top-0 w-full" >
             <div className="navbar flex-col md:flex-row lg:flex-row bg-neutral text-neutral-content">
-                <Link to="/"><button className="btn btn-ghost text-xl text-yellow-600 font-sans font-semibold">Send Eassy</button></Link>
+                <Link to="/"><button className="btn btn-ghost text-xl text-yellow-600 font-sans font-semibold">Send Easy</button></Link>
                 <div className="text-white font-extrabold flex mx-auto"><IoCallSharp className="mr-2" /> Call us  :   <span className="text-yellow-600 ml-2">  +8801701474332</span></div>
                 <button className="bg-yellow-600 text-white btn  font-bold">Sign In</button>
             </div>
 
-            <div className="navbar bg-base-100">
+            <div className="navbar  bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

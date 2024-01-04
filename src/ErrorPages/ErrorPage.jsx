@@ -6,7 +6,7 @@ const ErrorPage = () => {
     return (
         <div className="flex mt-8 justify-center items-center space-y-4">
             <div className="">
-            <img  width={500} src={error}></img>
+            <img  width={300} src={error}></img>
             <Link to ="/">
                 <button className="btn mt-8  bg-gradient-to-r from-yellow-500 to-orange-400">Go To HomePage</button>
             </Link>

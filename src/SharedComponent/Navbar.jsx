@@ -3,13 +3,13 @@ import { IoCallSharp } from "react-icons/io5";
 
 const Navbar = () => {
     const navComponents = <>
-        <li className="font-bold text-lg"><a>Home</a></li>
-        <li className="font-bold text-lg"><a>Tracking</a></li>
-        <li className="font-bold text-lg"><a>About</a></li>
-        <li className="font-bold text-lg"><a>Pricing</a></li>
-        <li className="font-bold text-lg"><a>Contact</a></li>
-        <li className="font-bold text-lg"><a>Career</a></li>
-        <li className="font-bold text-lg"><a>DASHBORD</a></li>
+        <li className="font-bold hover:text-yellow-600 hover:font-bold text-lg"><a>Home</a></li>
+        <li className="font-bold hover:text-yellow-600 hover:font-bold text-lg"><a>Tracking</a></li>
+        <li className="font-bold hover:text-yellow-600 hover:font-bold text-lg"><a>About</a></li>
+        <li className="font-bold hover:text-yellow-600 hover:font-bold text-lg"><a>Pricing</a></li>
+        <li className="font-bold hover:text-yellow-600 hover:font-bold text-lg"><a>Contact</a></li>
+        <li className="font-bold hover:text-yellow-600 hover:font-bold text-lg"><a>Career</a></li>
+        <li className="font-bold hover:text-blue-500 hover:font-bold text-lg"><a>DASHBORD</a></li>
 
 
     </>

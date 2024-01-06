@@ -8,15 +8,15 @@ const Bannar = () => {
                 <div className="hero-overlay bg-opacity-80"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                        <p className="mb-5 font-bold text-4xl">Introducing </p>
-                        <h1 className="mb-5 text-5xl text-yellow-600 font-bold">Courier Service</h1>
-                        <p className=" text-xl font-bold">We are providing you easy courier from one place to another place, NonStop.</p>
-                        <p className="mb-5 text-3xl mt-4 font-bold">Follow <span className="text-2xl  btn-sm btn-circle p-2 bg-yellow-600">3</span> Steps!</p>
+                        <p className="mt-4 md:mb-3 lg:mb-5 font-bold text-2xl md:text-3xl lg:text-4xl">Introducing </p>
+                        <h1 className="mt-4 md:mb-3 lg:mb-5 text-2xl md:text-3xl lg:text-5xl text-yellow-600 font-bold">Courier Service</h1>
+                        <p className="text-lg md:text-xl lg:text-xl font-bold">We are providing you easy courier from one place to another place, NonStop.</p>
+                        <p className="mt-4 mb-2 md:mb-3 lg:mb-5 text-xl md:text-3xl lg:text-3xl  font-bold">Follow <span className="text-2xl  btn-sm btn-circle p-2 bg-yellow-600">3</span> Steps!</p>
 
                         <ul className="steps">
-                            <li className="step  step-accent text-2xl font-bold">Trust</li>
-                            <li className="step step-accent text-2xl font-bold">Send</li>
-                            <li className="step step-accent text-2xl font-bold">Receive</li>
+                            <li className=" step   step-accent text-xl md:text-2xl lg:text-xl font-bold">Trust</li>
+                            <li className="step step-accent text-xl md:text-2xl lg:text-xl font-bold">Send</li>
+                            <li className="step step-accent text-xl md:text-2xl lg:text-xl font-bold">Receive</li>
                            
                         </ul>
 

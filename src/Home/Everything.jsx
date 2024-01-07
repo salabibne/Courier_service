@@ -11,7 +11,7 @@ const Everything = () => {
             <p className="text-center text-4xl py-2 mt-8 text-yellow-600 font-bold text-wrap">Highlited Categories</p>
 
 
-            <div className="grid  md:p-3 lg:p-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-14 items-center justify-center">
+            <div className="grid  md:p-3 lg:p-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-14 max-w-72  md:max-w-fit lg:max-w-fit gap-12 py-8 mx-auto">
                 {/* grocery */}
                 <div className="card border-2 hover:border-yellow-600 hover:w-80 md:hover:w-80 lg:hover:w-96  card-compact w-80 bg-base-100 shadow-xl">
                     <figure><img src={grocery} alt="grocery" /></figure>

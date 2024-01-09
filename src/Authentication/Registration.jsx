@@ -17,6 +17,12 @@ const Registration = () => {
                         <form className="card-body">
                             <div className="form-control">
                                 <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="text" placeholder="Name" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email" placeholder="email" className="input input-bordered" required />
@@ -26,17 +32,24 @@ const Registration = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" placeholder="password" className="input input-bordered" required />
+                                
+                            </div>
+                            <div className="form-control">
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <span className="label-text">occupation</span>
                                 </label>
+                                <input type="text" placeholder="occupation" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Phone</span>
+                                </label>
+                                <input type="tel" placeholder="Phone Number (start +88)" className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn bg-yellow-700 text-2xl font-semibold text-white hover:bg-yellow-800 btn-primary">Register</button>
                             </div>
-                            <p className="mt-6 text-center font-semibold"> or, Continue with </p>
-                            <div className=" flex items-center justify-center mt-6">
-                                <button className="text-3xl flex items-center justify-center"><FcGoogle></FcGoogle></button>
-                            </div>
+                           
                             <div className="flex flex-col w-full">
                                 <div className="divider divider-start"></div>
 

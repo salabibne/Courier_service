@@ -1,8 +1,42 @@
-
+import { useFormik } from 'formik';
 import { MdOutlineLogin } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 const Login = () => {
+    const formik = useFormik({
+        initialValues: {
+
+            email: "",
+            password: "",
+
+
+
+        },
+        validate: values => {
+            const errors = {};
+            if (!values.email) {
+                errors.email = 'Required Email';
+            } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+                errors.email = 'Invalid email address';
+            }
+            if (!values.password) {
+                errors.password = 'Required';
+            } else if (
+                !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]+$/.test(values.password)
+            ) {
+                errors.password =
+                    'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character';
+            } else if (values.password.length < 6) {
+                errors.password = 'Password should be at least 6 characters';
+            }
+            return errors
+
+        },
+        onSubmit: values => {
+            console.log(values);
+
+        }
+    })
     return (
         <div>
             <div className=" min-h-screen  mt-44 md:mt-32 lg:mt-36 ">
@@ -13,18 +47,23 @@ const Login = () => {
 
                     </div>
                     <div className="card w-1/2 mx-auto  shadow-2xl ">
-                        <form className="card-body">
+                        <form onSubmit={formik.handleSubmit} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" className="input input-bordered" required />
+                                <input type="email" id="email" name="email" placeholder="email" onChange={formik.handleChange}
+                                    value={formik.values.email} className="input input-bordered" required />
+                                {formik.touched.email && formik.errors.email && <p className='text-red-500'>{formik.errors.email}</p>}
+
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered" required />
+                                <input type="password " id="password" name="password" placeholder="password" onChange={formik.handleChange}
+                                    value={formik.values.password} className="input input-bordered" required />
+                                {formik.touched.password && formik.errors.password && <p className='text-red-500'>{formik.errors.password}</p>}
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
@@ -38,11 +77,11 @@ const Login = () => {
                             </div>
                             <div className="flex flex-col w-full">
                                 <div className="divider divider-start"></div>
-                            
+
                             </div>
                             <div className="flex gap-8 flex-col md:flex-row lg:flex-row  mt-4">
                                 <p className="text-xl text-red-500">Do not have an account ? </p>
-                                <Link to = "/register"><button className="text-xl bg-black text-white p-2 rounded-md">Regsiter</button></Link>
+                                <Link to="/register"><button className="text-xl bg-black text-white p-2 rounded-md">Regsiter</button></Link>
                             </div>
                         </form>
                     </div>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { IoCallSharp } from "react-icons/io5";
-
+import logo from "../../public/lg.png";
 const Navbar = () => {
     const navComponents = <>
         <Link to="/"><li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Home</a></li></Link>
@@ -16,7 +16,8 @@ const Navbar = () => {
     return (
         <div className="fixed top-0 z-10 w-full" >
             <div className="navbar flex-col md:flex-row lg:flex-row bg-neutral text-neutral-content">
-                <Link to="/"><button className="btn btn-ghost text-xl text-yellow-600 font-sans font-semibold">Send Easy</button></Link>
+                <Link to="/"><button className="btn btn-ghost text-xl text-yellow-600 font-sans font-semibold">
+                    <span><img className="w-[20px] h-[20px]" src={logo}></img></span>Send Easy</button></Link>
                 <div className="text-white font-extrabold flex mx-auto"><IoCallSharp className="mr-2" /> Call us  :   <span className="text-yellow-600 ml-2">  +8801701474332</span></div>
                 <Link to="/login"><button className="bg-yellow-600 text-white btn  font-bold">Sign In</button></Link>
             </div>

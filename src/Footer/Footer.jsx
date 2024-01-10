@@ -1,12 +1,13 @@
 
-
+import logo from "../../public/lg.png";
 const Footer = () => {
     return (
         <div>
             <footer className="footer p-10 bg-neutral text-neutral-content">
                 <aside>
                    
-                    <p className=" text-3xl font-bold text-yellow-700">SEND EASY</p>
+                    {/* <p className=" text-3xl font-bold text-yellow-700">SEND EASY</p> */}
+                    <img src={logo}></img>
                     <p>Relaible Courier service </p>
                 </aside>
                 <nav>

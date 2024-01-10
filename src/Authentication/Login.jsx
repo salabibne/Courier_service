@@ -3,7 +3,10 @@ import { MdOutlineLogin } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
+import { useState } from 'react';
+
 const Login = () => {
+    const [showPassword, setShowpassword] = useState(false)
     const formik = useFormik({
         initialValues: {
 
@@ -55,7 +58,7 @@ const Login = () => {
                         <form onSubmit={formik.handleSubmit} className="card-body">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text text-lg font-bold">Email</span>
                                 </label>
                                 <input type="email" id="email" name="email" placeholder="email" onChange={formik.handleChange}
                                     value={formik.values.email} className="input input-bordered" required />
@@ -64,13 +67,17 @@ const Login = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text text-lg font-bold">Password</span>
                                 </label>
-                                <input type="password " id="password" name="password" placeholder="password" onChange={formik.handleChange}
-                                    value={formik.values.password} className="input input-bordered" required />
-                                {formik.touched.password && formik.errors.password && <p className='text-red-500'>{formik.errors.password}</p>}
+                                <div className='flex flex-col md:flex-row lg:flex-row gap-2'>
+                                    <input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="password" onChange={formik.handleChange}
+                                        value={formik.values.password} className="  w-3/4 input input-bordered" required />
+
+                                    {formik.touched.password && formik.errors.password && <p className='text-red-500'>{formik.errors.password}</p>}
+                                    <p className='btn text-yellow-600 text-lg w-1/3' onClick={() => setShowpassword(!showPassword)}>{showPassword ? "Hidden Password" : "Show Password"}</p>
+                                </div>
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <a href="#" className="label-text text-lg text-blue-600  font-bold link link-hover">Forgot password?</a>
                                 </label>
                             </div>
                             <div className="form-control mt-6">

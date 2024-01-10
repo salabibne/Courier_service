@@ -1,5 +1,6 @@
 
 import { useFormik } from 'formik';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from "react-router-dom";
 // import * as Yup from "yup";
@@ -19,6 +20,7 @@ import { Link } from "react-router-dom";
 
 
 const Registration = () => {
+    const [showPassword, setShowpassword] = useState(false)
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -83,7 +85,7 @@ const Registration = () => {
                         <form onSubmit={formik.handleSubmit} className="card-body">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Name</span>
+                                    <span className="label-text text-lg font-bold">Name</span>
                                 </label>
                                 <input type="text" id="name" name="name" placeholder="Name" onChange={formik.handleChange}
                                     value={formik.values.name} onBlur={formik.handleBlur} className="input input-bordered" required />
@@ -91,35 +93,39 @@ const Registration = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text text-lg font-bold">Email</span>
                                 </label>
-                                <input type="email" id="email" name="email" placeholder="email" onChange={formik.handleChange}
+                                <input type='email' id="email" name="email" placeholder="email" onChange={formik.handleChange}
                                     value={formik.values.email} className="input input-bordered" required />
                                 {formik.touched.email && formik.errors.email && <p className='text-red-500'>{formik.errors.email}</p>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text text-lg font-bold">Password</span>
                                 </label>
-                                <input type="password " id="password" name="password" placeholder="password" onChange={formik.handleChange}
-                                    value={formik.values.password} className="input input-bordered" required />
-                                {formik.touched.password && formik.errors.password && <p className='text-red-500'>{formik.errors.password}</p>}
+                                <div className='flex flex-col md:flex-row lg:flex-row gap-2'>
+                                    <input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="password" onChange={formik.handleChange}
+                                        value={formik.values.password} className="  w-3/4 input input-bordered" required />
+
+                                    {formik.touched.password && formik.errors.password && <p className='text-red-500'>{formik.errors.password}</p>}
+                                    <p className='btn text-yellow-600 text-lg w-1/3' onClick={() => setShowpassword(!showPassword)}>{showPassword ? "Hidden Password" : "Show Password"}</p>
+                                </div>
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">occupation</span>
+                                    <span className="label-text text-lg font-bold">occupation</span>
                                 </label>
                                 <input type="text" id="occupation" name='occupation' placeholder="occupation" onChange={formik.handleChange}
                                     value={formik.values.occupation} className="input input-bordered" required />
-                                    {formik.touched.occupation && formik.errors.occupation && <p className='text-red-500'>{formik.errors.occupation}</p>}
+                                {formik.touched.occupation && formik.errors.occupation && <p className='text-red-500'>{formik.errors.occupation}</p>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Phone</span>
+                                    <span className="label-text text-lg font-bold">Phone</span>
                                 </label>
                                 <input type="tel" id="phonenumber" name='phonenumber' placeholder="Phone Number (start +88)" onChange={formik.handleChange}
                                     value={formik.values.phonenumber} className="input input-bordered" required />
-                                    {formik.touched.phonenumber && formik.errors.phonenumber && <p className='text-red-500'>{formik.errors.phonenumber}</p>}
+                                {formik.touched.phonenumber && formik.errors.phonenumber && <p className='text-red-500'>{formik.errors.phonenumber}</p>}
                             </div>
                             <div className="form-control mt-6">
                                 <button type='submit' className="btn bg-yellow-700 text-2xl font-semibold text-white hover:bg-yellow-800 btn-primary">Register</button>

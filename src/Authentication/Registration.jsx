@@ -28,6 +28,7 @@ const Registration = () => {
             password: "",
             occupation: "",
             phonenumber: "",
+            location:"",
 
 
         },
@@ -48,6 +49,9 @@ const Registration = () => {
             }
             if (!values.phonenumber) {
                 errors.phonenumber = 'Required Phone Number';
+            }
+            if (!values.location) {
+                errors.location = 'Required Location';
             }
             if (!values.password) {
                 errors.password = 'Required';
@@ -126,6 +130,14 @@ const Registration = () => {
                                 <input type="tel" id="phonenumber" name='phonenumber' placeholder="Phone Number (start +88)" onChange={formik.handleChange}
                                     value={formik.values.phonenumber} className="input input-bordered" required />
                                 {formik.touched.phonenumber && formik.errors.phonenumber && <p className='text-red-500'>{formik.errors.phonenumber}</p>}
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text text-lg font-bold">Your Location</span>
+                                </label>
+                                <input type="text" id="location" name='location' placeholder="Type your District Name, Example: Dhaka" onChange={formik.handleChange}
+                                    value={formik.values.location} className="input input-bordered" required />
+                                {formik.touched.location && formik.errors.location && <p className='text-red-500'>{formik.errors.location}</p>}
                             </div>
                             <div className="form-control mt-6">
                                 <button type='submit' className="btn bg-yellow-700 text-2xl font-semibold text-white hover:bg-yellow-800 btn-primary">Register</button>

@@ -2,6 +2,7 @@ import { useFormik } from 'formik';
 import { MdOutlineLogin } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 const Login = () => {
     const formik = useFormik({
         initialValues: {
@@ -39,6 +40,10 @@ const Login = () => {
     })
     return (
         <div>
+            <Helmet>
+                <title>Login</title>
+
+            </Helmet>
             <div className=" min-h-screen  mt-44 md:mt-32 lg:mt-36 ">
                 <div className=" flex-col ">
                     <div className="text-center flex items-center justify-center lg:text-left">

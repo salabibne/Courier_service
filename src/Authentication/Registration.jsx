@@ -1,8 +1,9 @@
 
 import { useFormik } from 'formik';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from "react-router-dom";
+import { CourierContext } from '../Context/AuthContext';
 // import * as Yup from "yup";
 // const DisplayingErrorMessage = Yup.object().shape({
 //     name: Yup.string().min(2, "Too Short").max(50, "Too Long").required('Required'),
@@ -21,6 +22,7 @@ import { Link } from "react-router-dom";
 
 const Registration = () => {
     const [showPassword, setShowpassword] = useState(false)
+    const {createUser} = useContext(CourierContext)
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -68,6 +70,13 @@ const Registration = () => {
 
         onSubmit: values => {
             console.log(values);
+            createUser(values.email,values.password)
+            .then((userCredential)=>{
+                console.log(userCredential.user);
+            })
+            .catch((error)=>{
+                console.error(error.message)
+            })
 
         }
     })
@@ -91,7 +100,7 @@ const Registration = () => {
                                 <label className="label">
                                     <span className="label-text text-lg font-bold">Name</span>
                                 </label>
-                                <input type="text" id="name" name="name" placeholder="Name" onChange={formik.handleChange}
+                                <input type="text"  id="name" name="name" placeholder="Name" onChange={formik.handleChange}
                                     value={formik.values.name} onBlur={formik.handleBlur} className="input input-bordered" required />
                                 {formik.touched.name && formik.errors.name && <p className='text-red-500'>{formik.errors.name}</p>}
                             </div>

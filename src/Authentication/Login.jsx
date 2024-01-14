@@ -3,10 +3,13 @@ import { MdOutlineLogin } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { CourierContext } from '../Context/AuthContext';
 
 const Login = () => {
     const [showPassword, setShowpassword] = useState(false)
+    const [error,setError] = useState("")
+    const {signIn} = useContext(CourierContext)
     const formik = useFormik({
         initialValues: {
 
@@ -37,6 +40,15 @@ const Login = () => {
 
         },
         onSubmit: values => {
+            setError("")
+            signIn(values.email,values.password)
+            .then((userCredintial)=>{
+                console.log(userCredintial.user);
+            })
+            .catch((error)=>{
+                setError(error.message)
+                console.log(error.message);
+            })
             console.log(values);
 
         }
@@ -79,6 +91,7 @@ const Login = () => {
                                 <label className="label">
                                     <a href="#" className="label-text text-lg text-blue-600  font-bold link link-hover">Forgot password?</a>
                                 </label>
+                                {error && <p className='text-red-600'>{error}</p>}
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn bg-yellow-700 text-2xl font-semibold text-white hover:bg-yellow-800 btn-primary">Login</button>

@@ -22,7 +22,8 @@ import { CourierContext } from '../Context/AuthContext';
 
 const Registration = () => {
     const [showPassword, setShowpassword] = useState(false)
-    const {createUser} = useContext(CourierContext)
+    const [error, setError] = useState(false)
+    const {createUser,updateUser} = useContext(CourierContext)
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -31,6 +32,7 @@ const Registration = () => {
             occupation: "",
             phonenumber: "",
             location:"",
+            photo:"",
 
 
         },
@@ -55,6 +57,9 @@ const Registration = () => {
             if (!values.location) {
                 errors.location = 'Required Location';
             }
+            if (!values.photo) {
+                errors.location = 'Required PhotoLink';
+            }
             if (!values.password) {
                 errors.password = 'Required';
             } else if (
@@ -70,11 +75,21 @@ const Registration = () => {
 
         onSubmit: values => {
             console.log(values);
+            setError("")
             createUser(values.email,values.password)
             .then((userCredential)=>{
                 console.log(userCredential.user);
+                updateUser(values.name,values.photo)
+                .then(()=>{
+                    console.log("profile updated");
+                })
+                .catch((error)=>{
+                    setError(error.message)
+                    console.log(error.message);
+                })
             })
             .catch((error)=>{
+                setError(error.message)
                 console.error(error.message)
             })
 
@@ -122,7 +137,9 @@ const Registration = () => {
 
                                     {formik.touched.password && formik.errors.password && <p className='text-red-500'>{formik.errors.password}</p>}
                                     <p className='btn text-yellow-600 text-lg w-1/3' onClick={() => setShowpassword(!showPassword)}>{showPassword ? "Hidden Password" : "Show Password"}</p>
+                                    
                                 </div>
+                                <p className='text-gray-800 text-wrap'>Your password length should be atleast 6 including uppercase letter,lowercase letter, number,special symbol.</p>
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -142,6 +159,14 @@ const Registration = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
+                                    <span className="label-text text-lg font-bold">Your Photo Link</span>
+                                </label>
+                                <input type="url" id="photo" name='photo' placeholder="Host your image and paste here the link" onChange={formik.handleChange}
+                                    value={formik.values.photo} className="input input-bordered" required />
+                                {formik.touched.photo && formik.errors.photo && <p className='text-red-500'>{formik.errors.photo}</p>}
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
                                     <span className="label-text text-lg font-bold">Your Location</span>
                                 </label>
                                 <input type="text" id="location" name='location' placeholder="Type your District Name, Example: Dhaka" onChange={formik.handleChange}
@@ -151,6 +176,9 @@ const Registration = () => {
                             <div className="form-control mt-6">
                                 <button type='submit' className="btn bg-yellow-700 text-2xl font-semibold text-white hover:bg-yellow-800 btn-primary">Register</button>
                             </div>
+                            {
+                                error && <p className='text-red-700'>{error}</p>
+                            }
 
                             <div className="flex flex-col w-full">
                                 <div className="divider divider-start"></div>

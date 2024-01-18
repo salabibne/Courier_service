@@ -4,7 +4,12 @@ import logo from "../../public/lg.png";
 import { useContext } from "react";
 import { CourierContext } from "../Context/AuthContext";
 const Navbar = () => {
-    const { user } = useContext(CourierContext)
+    const { user,logOut } = useContext(CourierContext)
+    const logOutFromThePortal = ()=>{
+        return logOut()
+        .then(()=>{})
+        .catch(()=>{})
+    }
 
     const navComponents = <>
         <Link to="/"><li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Home</a></li></Link>
@@ -24,7 +29,7 @@ const Navbar = () => {
                     <span><img className="w-[20px] h-[20px]" src={logo}></img></span>Send Easy</button></Link>
                 <div className="text-white font-extrabold  mx-auto"><IoCallSharp className="mr-2" /> Call us  :   <span className="text-yellow-600 ml-2">  +8801701474332</span></div>
                 {
-                    user ? <div className="flex">
+                    user ? <div className="flex gap-4">
                         <div>
                             <p className="text-white">{user?.displayName}</p>
                         </div>
@@ -38,9 +43,8 @@ const Navbar = () => {
                                 </div>
                             </div>
                             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-
-                                <li className="text-black"><a>Logout</a></li>
-                                <li className="text-black"><a>{user.displayName}</a></li>
+                                <button onClick={logOutFromThePortal} className="text-black">LogOut</button>
+                                
                             </ul>
                         </div>
                     </div>

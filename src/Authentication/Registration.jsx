@@ -4,20 +4,7 @@ import { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from "react-router-dom";
 import { CourierContext } from '../Context/AuthContext';
-// import * as Yup from "yup";
-// const DisplayingErrorMessage = Yup.object().shape({
-//     name: Yup.string().min(2, "Too Short").max(50, "Too Long").required('Required'),
-//     email: Yup.string().email("Invalid Email").required("Required")
-// })
-// function validateEmail(value) {
-//     let error;
-//     if (!value) {
-//       error = 'Required';
-//     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-//       error = 'Invalid email address';
-//     }
-//     return error;
-//   }
+
 
 
 const Registration = () => {

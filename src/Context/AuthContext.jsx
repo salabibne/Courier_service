@@ -1,10 +1,11 @@
-import { createContext,  useEffect } from "react";
+import { createContext, useEffect } from "react";
 
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 
 import { useState } from "react";
 import app from "../../firebase.config";
 const auth = getAuth(app);
+const user_login = auth.currentUser;
 export const CourierContext = createContext(null)
 const AuthContext = ({ children }) => {
     // user information 
@@ -22,9 +23,9 @@ const AuthContext = ({ children }) => {
     }
 
     // update user profile 
-    const updateUser = (name,profilelink)=>{
-        return updateProfile(auth.currentUser,{
-            displayName:name, photoURL: profilelink
+    const updateUser = (name, profilelink) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: profilelink
         })
 
     }
@@ -54,7 +55,7 @@ const AuthContext = ({ children }) => {
 
 
     // values
-    let value = { user, createUser, signIn, logOut,updateUser }
+    let value = { user,user_login, createUser, signIn, logOut, updateUser }
     return (
         <CourierContext.Provider value={value}>
             {children}

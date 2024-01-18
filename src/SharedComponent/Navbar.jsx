@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { CourierContext } from "../Context/AuthContext";
 const Navbar = () => {
     const { user,logOut } = useContext(CourierContext)
+    
     const logOutFromThePortal = ()=>{
         return logOut()
         .then(()=>{})

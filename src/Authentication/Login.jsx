@@ -9,7 +9,17 @@ import { CourierContext } from '../Context/AuthContext';
 const Login = () => {
     const [showPassword, setShowpassword] = useState(false)
     const [error,setError] = useState("")
-    const {signIn} = useContext(CourierContext)
+    const {signIn,googleSignIn} = useContext(CourierContext)
+    const continueWithGoogle =()=>{
+        return googleSignIn()
+        .then((result)=>{
+            console.log("googleSignIn",result.user);
+        })
+        .catch((error)=>{
+            console.log("Error_googleSignIn",error.message);
+            setError(error.message)
+        })
+    }
     const formik = useFormik({
         initialValues: {
 
@@ -44,6 +54,7 @@ const Login = () => {
             signIn(values.email,values.password)
             .then((userCredintial)=>{
                 console.log(userCredintial.user);
+                
             })
             .catch((error)=>{
                 setError(error.message)
@@ -98,7 +109,7 @@ const Login = () => {
                             </div>
                             <p className="mt-6 text-center font-semibold"> or, Continue with </p>
                             <div className=" flex items-center justify-center mt-6">
-                                <button className="text-3xl flex items-center justify-center"><FcGoogle></FcGoogle></button>
+                                <button onClick={continueWithGoogle} className="text-3xl flex items-center justify-center"><FcGoogle></FcGoogle></button>
                             </div>
                             <div className="flex flex-col w-full">
                                 <div className="divider divider-start"></div>

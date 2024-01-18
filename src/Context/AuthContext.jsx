@@ -1,15 +1,17 @@
 import { createContext, useEffect } from "react";
 
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 
 import { useState } from "react";
 import app from "../../firebase.config";
 const auth = getAuth(app);
-const user_login = auth.currentUser;
+const provider = new GoogleAuthProvider();
+
 export const CourierContext = createContext(null)
 const AuthContext = ({ children }) => {
     // user information 
     const [user, setUser] = useState(null)
+    
 
 
     // Create user with email and password
@@ -29,6 +31,12 @@ const AuthContext = ({ children }) => {
         })
 
     }
+
+    // signIn with google 
+    const googleSignIn = ()=>{
+        return signInWithPopup(auth,provider)
+    }
+
 
     // Logout 
     const logOut = () => {
@@ -55,7 +63,7 @@ const AuthContext = ({ children }) => {
 
 
     // values
-    let value = { user,user_login, createUser, signIn, logOut, updateUser }
+    let value = { user, createUser, signIn, logOut, updateUser,googleSignIn }
     return (
         <CourierContext.Provider value={value}>
             {children}

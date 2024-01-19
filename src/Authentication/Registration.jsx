@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from "react-router-dom";
+
 import { CourierContext } from '../Context/AuthContext';
 
 
@@ -10,7 +11,7 @@ import { CourierContext } from '../Context/AuthContext';
 const Registration = () => {
     const [showPassword, setShowpassword] = useState(false)
     const [error, setError] = useState(false)
-    const {createUser,updateUser} = useContext(CourierContext)
+    const {createUser,updateUser,logOut} = useContext(CourierContext)
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -66,9 +67,13 @@ const Registration = () => {
             createUser(values.email,values.password)
             .then((userCredential)=>{
                 console.log(userCredential.user);
+
                 updateUser(values.name,values.photo)
                 .then(()=>{
                     console.log("profile updated");
+                    return logOut()
+                 
+
                 })
                 .catch((error)=>{
                     setError(error.message)

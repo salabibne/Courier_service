@@ -4,6 +4,7 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStat
 
 import { useState } from "react";
 import app from "../../firebase.config";
+import { Link } from "react-router-dom";
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
@@ -48,6 +49,7 @@ const AuthContext = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             setUser(user)
             if (user) {
+               
 
 
                 console.log(user);

@@ -1,16 +1,37 @@
 
-
+import { useLocation } from "react-router-dom";
 import delivery_vehicle from "../../../public/Bannar/delevaryVehicle.jpg"
+import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 const About = () => {
+
+    const urlLocation = useLocation();
+    const [page, setPage] = useState("");
+    console.log(urlLocation.pathname);
+    useEffect(() => {
+        if (urlLocation.pathname === "/about") {
+            setPage("about")
+        }
+        else {
+            setPage("")
+        }
+    }, [urlLocation.pathname])
+
+
     return (
         <div>
+            {
+                page && <Helmet>
+                    <title>About</title>
+                </Helmet>
+            }
             {/* for main div , using flex  */}
             <div className="flex flex-col md:flex-row lg:flex-row justify-evenly items-center gap-0 ">
 
                 {/* for picture */}
 
                 <div className="p-6 ">
-                    <img className= "  w-[400px] h-[300px]  md:w-[700px] md:h-[450px] lg:w-[800px] lg:h-[600px]" src={delivery_vehicle}></img>
+                    <img className="  w-[400px] h-[300px]  md:w-[700px] md:h-[450px] lg:w-[800px] lg:h-[600px]" src={delivery_vehicle}></img>
                 </div>
 
                 {/* text content */}
@@ -19,7 +40,10 @@ const About = () => {
                     <p className="mr-2 p-4 text-wrap text-gray-600 text-lg">
                         Introducing Send Easy: Effortless courier service for seamless deliveries. <br></br>Simply place your order, and we'll  efficiently distribute and seal packages <br></br> in our 64 warehouses. Our streamlined process ensures swift and secure <br></br> delivery to your doorstep. Experience the convenience of a reliable courier <br></br>service with send-Easy making shipping easy and hassle-free.</p>
                 </div>
+
             </div>
+            
+
         </div>
     );
 };

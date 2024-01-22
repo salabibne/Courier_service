@@ -15,7 +15,7 @@ const Navbar = () => {
     const navComponents = <>
         <Link to="/"><li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Home</a></li></Link>
         <li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Tracking</a></li>
-        <li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>About</a></li>
+        <Link to = "/about"><li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>About</a></li></Link>
         <li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Pricing</a></li>
         <li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Contact</a></li>
         <li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Career</a></li>

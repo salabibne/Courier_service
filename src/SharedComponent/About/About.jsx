@@ -1,6 +1,7 @@
 
 import { useLocation } from "react-router-dom";
 import delivery_vehicle from "../../../public/Bannar/delevaryVehicle.jpg"
+import mission from "../../../public/mission/mission.jpg"
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 const About = () => {
@@ -42,7 +43,33 @@ const About = () => {
                 </div>
 
             </div>
-            
+            {
+
+                page && <div>
+                    <div className="flex flex-col md:flex-row lg:flex-row-reverse justify-evenly items-center gap-0 ">
+
+                        {/* for picture */}
+
+                        <div className="p-6 ">
+                            <img className="  w-[300px] h-[200px]  md:w-[600px] md:h-[350px] lg:w-[700px] lg:h-[500px]" src={mission}></img>
+                        </div>
+
+                        {/* text content */}
+                        <div className="border-8 border-yellow-600 p-8 mx-auto">
+                            <h1 className=" text-3xl md:text-4xl lg:text-5xl ml-4 font-sans font-bold uppercase">Our Mission</h1>
+                            <p className="mr-2 p-4 text-wrap text-gray-600 text-lg">
+                            Unveiling Send Easy: Pioneering seamless courier solutions for flawless missions.<br></br> Just submit your request, and we'll adeptly organize and enclose parcels across our 64 hubs.<br></br> Our optimized system guarantees prompt and protected dispatch to your destination. Encounter <br></br>the ease of a dependable courier service with Send Easy, simplifying shipping for your<br></br> mission with effortless precision.
+                            </p>
+                                
+                        </div>
+
+                    </div>
+                </div>
+
+
+            }
+
+
 
         </div>
     );

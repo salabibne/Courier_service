@@ -11,6 +11,11 @@ import { MdMapsHomeWork } from "react-icons/md";
 import { FaPeopleCarry } from "react-icons/fa";
 import { FaTruck } from "react-icons/fa6";
 import { IoBagHandleSharp } from "react-icons/io5";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 const About = () => {
 
     const urlLocation = useLocation();
@@ -99,35 +104,61 @@ const About = () => {
                     </div>
                     <h1 className=" text-3xl md:text-4xl lg:text-5xl ml-4 mb-6 mt-6 font-sans font-bold uppercase">Achievement</h1>
                     <div className="bg-slate-200 p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                      
+
                         <div className="card w-80 mb-4 bg-base-100 shadow-xl">
                             <div className="card-body">
-                                <h2 className="card-title text-7xl mx-auto text-yellow-600"><MdMapsHomeWork></MdMapsHomeWork></h2> 
+                                <h2 className="card-title text-7xl mx-auto text-yellow-600"><MdMapsHomeWork></MdMapsHomeWork></h2>
                                 <p className="font-bold text-2xl mx-auto">64 Branch</p>
-                               
+
                             </div>
                         </div>
                         <div className="card w-80 mb-4 bg-base-100 shadow-xl">
                             <div className="card-body">
-                                <h2 className="card-title text-7xl mx-auto text-yellow-600"><FaPeopleCarry></FaPeopleCarry></h2> 
+                                <h2 className="card-title text-7xl mx-auto text-yellow-600"><FaPeopleCarry></FaPeopleCarry></h2>
                                 <p className="font-bold text-2xl mx-auto">1200+ Employee</p>
-                               
+
                             </div>
                         </div>
                         <div className="card w-80 mb-4 bg-base-100 shadow-xl">
                             <div className="card-body">
-                                <h2 className="card-title text-7xl mx-auto text-yellow-600"><FaTruck></FaTruck></h2> 
+                                <h2 className="card-title text-7xl mx-auto text-yellow-600"><FaTruck></FaTruck></h2>
                                 <p className="font-bold text-2xl mx-auto">120 Truck</p>
-                               
+
                             </div>
                         </div>
                         <div className="card w-80 mb-4 bg-base-100 shadow-xl">
                             <div className="card-body">
-                                <h2 className="card-title text-7xl mx-auto text-yellow-600"><IoBagHandleSharp></IoBagHandleSharp></h2> 
+                                <h2 className="card-title text-7xl mx-auto text-yellow-600"><IoBagHandleSharp></IoBagHandleSharp></h2>
                                 <p className="font-bold text-2xl mx-auto">10,000 Delevery</p>
-                               
+
                             </div>
                         </div>
+                    </div>
+                    <div>
+                        <Swiper
+                            spaceBetween={30}
+                            centeredSlides={true}
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
+                            }}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            navigation={true}
+                            modules={[Autoplay, Pagination, Navigation]}
+                            className="mySwiper"
+                        >
+                            <SwiperSlide>Slide 1</SwiperSlide>
+                            <SwiperSlide>Slide 2</SwiperSlide>
+                            <SwiperSlide>Slide 3</SwiperSlide>
+                            <SwiperSlide>Slide 4</SwiperSlide>
+                            <SwiperSlide>Slide 5</SwiperSlide>
+                            <SwiperSlide>Slide 6</SwiperSlide>
+                            <SwiperSlide>Slide 7</SwiperSlide>
+                            <SwiperSlide>Slide 8</SwiperSlide>
+                            <SwiperSlide>Slide 9</SwiperSlide>
+                        </Swiper>
                     </div>
                 </div>
 

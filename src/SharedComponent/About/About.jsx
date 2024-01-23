@@ -7,6 +7,10 @@ import ware_house from "../../../public/About/pic_2.jpg"
 import truck from "../../../public/About/Pic_3.jpg"
 import { useEffect, useState } from "react"
 import { Helmet } from "react-helmet-async"
+import { MdMapsHomeWork } from "react-icons/md";
+import { FaPeopleCarry } from "react-icons/fa";
+import { FaTruck } from "react-icons/fa6";
+import { IoBagHandleSharp } from "react-icons/io5";
 const About = () => {
 
     const urlLocation = useLocation();
@@ -48,7 +52,7 @@ const About = () => {
                         <div className="border-8 w/12 border-yellow-600 p-8 mx-auto">
                             <h1 className=" text-3xl md:text-4xl lg:text-5xl ml-4 font-sans font-bold uppercase">Send Easy</h1>
                             <p className="mr-2 p-4 text-wrap text-gray-600 text-lg">Welcome to Send Easy, your premier courier service with a network of 64 branches <br></br>dedicated to ensuring swift and reliable deliveries. Our commitment is to provide fast <br></br> delivery solutions that prioritize both speed and security. Navigating our user-friendly <br></br>platform is a breeze, making Send Easy the epitome of convenience in courier services.<br></br> Experience the seamless blend of efficiency and ease with every package sent through<br></br> Send Easy—where fast delivery meets simplicity.</p>
-                           
+
                         </div>
 
                     </div>
@@ -92,6 +96,38 @@ const About = () => {
 
                         </div>
 
+                    </div>
+                    <h1 className=" text-3xl md:text-4xl lg:text-5xl ml-4 mb-6 mt-6 font-sans font-bold uppercase">Achievement</h1>
+                    <div className="bg-slate-200 p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                      
+                        <div className="card w-80 mb-4 bg-base-100 shadow-xl">
+                            <div className="card-body">
+                                <h2 className="card-title text-7xl mx-auto text-yellow-600"><MdMapsHomeWork></MdMapsHomeWork></h2> 
+                                <p className="font-bold text-2xl mx-auto">64 Branch</p>
+                               
+                            </div>
+                        </div>
+                        <div className="card w-80 mb-4 bg-base-100 shadow-xl">
+                            <div className="card-body">
+                                <h2 className="card-title text-7xl mx-auto text-yellow-600"><FaPeopleCarry></FaPeopleCarry></h2> 
+                                <p className="font-bold text-2xl mx-auto">1200+ Employee</p>
+                               
+                            </div>
+                        </div>
+                        <div className="card w-80 mb-4 bg-base-100 shadow-xl">
+                            <div className="card-body">
+                                <h2 className="card-title text-7xl mx-auto text-yellow-600"><FaTruck></FaTruck></h2> 
+                                <p className="font-bold text-2xl mx-auto">120 Truck</p>
+                               
+                            </div>
+                        </div>
+                        <div className="card w-80 mb-4 bg-base-100 shadow-xl">
+                            <div className="card-body">
+                                <h2 className="card-title text-7xl mx-auto text-yellow-600"><IoBagHandleSharp></IoBagHandleSharp></h2> 
+                                <p className="font-bold text-2xl mx-auto">10,000 Delevery</p>
+                               
+                            </div>
+                        </div>
                     </div>
                 </div>
 

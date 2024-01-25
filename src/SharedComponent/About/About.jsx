@@ -5,6 +5,12 @@ import mission from "../../../public/mission/mission.jpg"
 import people from "../../../public/About/pic_1.jpg"
 import ware_house from "../../../public/About/pic_2.jpg"
 import truck from "../../../public/About/Pic_3.jpg"
+
+import apple from "../../../public/partners/apple.png"
+import evaly from "../../../public/partners/evaly.png"
+import foodPanda from "../../../public/partners/FoodPanda-logo.png"
+import burger from "../../../public/partners/mrburger.jpg"
+
 import { useEffect, useState } from "react"
 import { Helmet } from "react-helmet-async"
 import { MdMapsHomeWork } from "react-icons/md";
@@ -135,29 +141,30 @@ const About = () => {
                         </div>
                     </div>
                     <div>
+                        <h1 className=" text-3xl md:text-4xl lg:text-5xl ml-4 mb-6 mt-6 font-sans font-bold uppercase">partners</h1>
                         <Swiper
-                            spaceBetween={30}
+                            spaceBetween={1}
                             centeredSlides={true}
                             autoplay={{
-                                delay: 2500,
+                                delay: 2000,
                                 disableOnInteraction: false,
                             }}
                             pagination={{
                                 clickable: true,
                             }}
-                            navigation={true}
+                            // navigation={true}
                             modules={[Autoplay, Pagination, Navigation]}
-                            className="mySwiper"
+                            className="mySwiper w-1/2"
                         >
-                            <SwiperSlide>Slide 1</SwiperSlide>
-                            <SwiperSlide>Slide 2</SwiperSlide>
-                            <SwiperSlide>Slide 3</SwiperSlide>
-                            <SwiperSlide>Slide 4</SwiperSlide>
-                            <SwiperSlide>Slide 5</SwiperSlide>
-                            <SwiperSlide>Slide 6</SwiperSlide>
-                            <SwiperSlide>Slide 7</SwiperSlide>
-                            <SwiperSlide>Slide 8</SwiperSlide>
-                            <SwiperSlide>Slide 9</SwiperSlide>
+                            <SwiperSlide className="mx-auto p-8 "><img width={200} src={apple}></img></SwiperSlide>
+                            <SwiperSlide className="mx-auto p-8"><img width={200} src={evaly}></img></SwiperSlide>
+                            <SwiperSlide className="mx-auto p-8"><img width={200} src={foodPanda}></img></SwiperSlide>
+                            <SwiperSlide className="mx-auto p-8"><img width={200} src={burger}></img></SwiperSlide>
+                            <SwiperSlide className="mx-auto p-8"><img width={200} src={apple}></img></SwiperSlide>
+                            <SwiperSlide className="mx-auto p-8"><img width={200} src={evaly}></img></SwiperSlide>
+                            <SwiperSlide className="mx-auto p-8"><img width={200} src={foodPanda}></img></SwiperSlide>
+                            <SwiperSlide className="mx-auto p-8"><img width={200} src={burger}></img></SwiperSlide>
+                           
                         </Swiper>
                     </div>
                 </div>

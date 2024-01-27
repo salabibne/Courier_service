@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from "react-router-dom";
 
 import { CourierContext } from '../Context/AuthContext';
+import axios from 'axios';
 
 
 
@@ -69,8 +70,14 @@ const Registration = () => {
                 console.log(userCredential.user);
 
                 updateUser(values.name,values.photo)
+                // const user = {name: values.name}
                 .then(()=>{
                     console.log("profile updated");
+                    const user = {name: values.name,email:values.email,occupation:values.occupation,phonenumber:values.phonenumber,location:values.location,photo:values.photo}
+                    
+                    axios.post("/registerUser",user)
+                    .then((res)=>console.log(res))
+                    .catch((error)=>console.log(error))
                     return logOut()
                  
 

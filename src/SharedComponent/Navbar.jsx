@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IoCallSharp } from "react-icons/io5";
 import logo from "../../public/lg.png";
 import { useContext } from "react";
@@ -16,7 +16,7 @@ const Navbar = () => {
         <Link to="/"><li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Home</a></li></Link>
         <li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Tracking</a></li>
         <Link to = "/about"><li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>About</a></li></Link>
-        <li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Pricing</a></li>
+        <NavLink to= "/price"><li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Pricing</a></li></NavLink>
         <li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Contact</a></li>
         <li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Career</a></li>
         <li className="font-bold hover:text-blue-500 hover:font-bold hover:text-2xl text-lg"><a>DASHBORD</a></li>

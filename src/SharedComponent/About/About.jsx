@@ -60,7 +60,7 @@ const About = () => {
                         </div>
 
                         {/* text content */}
-                        <div className="border-8 w/12 border-yellow-600 p-8 mx-auto">
+                        <div className="border-8 w/12 border-yellow-600 p-4 mx-auto">
                             <h1 className=" text-3xl md:text-4xl lg:text-5xl ml-4 font-sans font-bold uppercase">Send Easy</h1>
                             <p className="mr-2 p-4 text-wrap text-gray-600 text-lg">Welcome to Send Easy, your premier courier service with a network of 64 branches <br></br>dedicated to ensuring swift and reliable deliveries. Our commitment is to provide fast <br></br> delivery solutions that prioritize both speed and security. Navigating our user-friendly <br></br>platform is a breeze, making Send Easy the epitome of convenience in courier services.<br></br> Experience the seamless blend of efficiency and ease with every package sent through<br></br> Send Easy—where fast delivery meets simplicity.</p>
 

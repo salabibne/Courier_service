@@ -8,6 +8,7 @@ import Home from "../Home/Home";
 import Login from "../Authentication/Login";
 import Registration from "../Authentication/Registration";
 import About from "../SharedComponent/About/About";
+import Price from "../Components/Price";
 
 const Router  = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const Router  = createBrowserRouter([
         {
           path:"/about",
           element:<About></About>
+        },
+        {
+          path:"/price",
+          element:<Price></Price>
         }
       ]
     

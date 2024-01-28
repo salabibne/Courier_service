@@ -5,14 +5,17 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from "react-router-dom";
 
 import { CourierContext } from '../Context/AuthContext';
-import axios from 'axios';
+
+import usePublicUrl from '../Hooks/usePublicUrl';
+import Swal from 'sweetalert2';
 
 
 
 const Registration = () => {
     const [showPassword, setShowpassword] = useState(false)
     const [error, setError] = useState(false)
-    const {createUser,updateUser,logOut} = useContext(CourierContext)
+    const { createUser, updateUser, logOut } = useContext(CourierContext)
+    const publicApi = usePublicUrl()
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -20,8 +23,8 @@ const Registration = () => {
             password: "",
             occupation: "",
             phonenumber: "",
-            location:"",
-            photo:"",
+            location: "",
+            photo: "",
 
 
         },
@@ -65,32 +68,44 @@ const Registration = () => {
         onSubmit: values => {
             console.log(values);
             setError("")
-            createUser(values.email,values.password)
-            .then((userCredential)=>{
-                console.log(userCredential.user);
+            createUser(values.email, values.password)
+                .then((userCredential) => {
+                    console.log(userCredential.user);
 
-                updateUser(values.name,values.photo)
-                // const user = {name: values.name}
-                .then(()=>{
-                    console.log("profile updated");
-                    const user = {name: values.name,email:values.email,occupation:values.occupation,phonenumber:values.phonenumber,location:values.location,photo:values.photo}
-                    
-                    axios.post("/registerUser",user)
-                    .then((res)=>console.log(res))
-                    .catch((error)=>console.log(error))
-                    return logOut()
-                 
+                    updateUser(values.name, values.photo)
+                        // const user = {name: values.name}
+                        .then(() => {
+                            console.log("profile updated");
+                            const user = { name: values.name, email: values.email, occupation: values.occupation, phonenumber: values.phonenumber, type: "normal", location: values.location, photo: values.photo }
 
+                            publicApi.post("/registerUser", user)
+                                .then((res) => {
+                                    console.log(res)
+                                    if (res.data.insertedId) {
+                                        Swal.fire({
+                                            position: "center",
+                                            icon: "success",
+                                            title: "Registration complete",
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        });
+
+                                    }
+                                })
+                                .catch((error) => console.log(error))
+                            return logOut()
+
+
+                        })
+                        .catch((error) => {
+                            setError(error.message)
+                            console.log(error.message);
+                        })
                 })
-                .catch((error)=>{
+                .catch((error) => {
                     setError(error.message)
-                    console.log(error.message);
+                    console.error(error.message)
                 })
-            })
-            .catch((error)=>{
-                setError(error.message)
-                console.error(error.message)
-            })
 
         }
     })
@@ -114,7 +129,7 @@ const Registration = () => {
                                 <label className="label">
                                     <span className="label-text text-lg font-bold">Name</span>
                                 </label>
-                                <input type="text"  id="name" name="name" placeholder="Name" onChange={formik.handleChange}
+                                <input type="text" id="name" name="name" placeholder="Name" onChange={formik.handleChange}
                                     value={formik.values.name} onBlur={formik.handleBlur} className="input input-bordered" required />
                                 {formik.touched.name && formik.errors.name && <p className='text-red-500'>{formik.errors.name}</p>}
                             </div>
@@ -136,7 +151,7 @@ const Registration = () => {
 
                                     {formik.touched.password && formik.errors.password && <p className='text-red-500'>{formik.errors.password}</p>}
                                     <p className='btn text-yellow-600 text-lg w-1/3' onClick={() => setShowpassword(!showPassword)}>{showPassword ? "Hidden Password" : "Show Password"}</p>
-                                    
+
                                 </div>
                                 <p className='text-gray-800 text-wrap'>Your password length should be atleast 6 including uppercase letter,lowercase letter, number,special symbol.</p>
                             </div>

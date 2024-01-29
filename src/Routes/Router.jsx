@@ -9,6 +9,7 @@ import Login from "../Authentication/Login";
 import Registration from "../Authentication/Registration";
 import About from "../SharedComponent/About/About";
 import Price from "../Components/Price";
+import DashBord from "../DashBord/DashBord";
 
 const Router  = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ const Router  = createBrowserRouter([
     
 
     },
+    {
+      path:"/dashbord",
+      element:<DashBord></DashBord>
+    }
   ]);
 
 export default Router;

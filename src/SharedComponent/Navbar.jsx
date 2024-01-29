@@ -19,8 +19,8 @@ const Navbar = () => {
         <NavLink to= "/price"><li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Pricing</a></li></NavLink>
         <li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Contact</a></li>
         <li className="font-bold hover:text-yellow-600 hover:font-bold hover:text-2xl text-lg"><a>Career</a></li>
-        <li className="font-bold hover:text-blue-500 hover:font-bold hover:text-2xl text-lg"><a>DASHBORD</a></li>
-
+        <NavLink to = "/dashbord"><li className="font-bold hover:text-blue-500 hover:font-bold hover:text-2xl text-lg"><a>DASHBORD</a></li></NavLink>
+        
 
     </>
     return (

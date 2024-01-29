@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../SharedComponent/Navbar";
-import AdminDashBord from "./Admin/AdminDashBord";
+
 
 
 const DashBord = () => {
@@ -10,7 +10,7 @@ const DashBord = () => {
             
             <div className="flex">
                 <div className="w-[280px] fixed min-h-screen bg-yellow-600 mt-36">
-                    <AdminDashBord></AdminDashBord>
+                    <p>Dashbord</p>
                
 
                 </div>

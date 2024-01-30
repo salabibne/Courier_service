@@ -5,6 +5,8 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStat
 import { useState } from "react";
 import app from "../../firebase.config";
 import { Link } from "react-router-dom";
+import usePublicUrl from "../Hooks/usePublicUrl";
+
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
@@ -12,6 +14,7 @@ export const CourierContext = createContext(null)
 const AuthContext = ({ children }) => {
     // user information 
     const [user, setUser] = useState(null)
+    const public_api = usePublicUrl()
     
 
 
@@ -50,11 +53,18 @@ const AuthContext = ({ children }) => {
             setUser(user)
             if (user) {
                
-
+            const user_email = {email:user.email}
+            public_api.post("/jwt", user_email)
+            .then(res =>{
+                if(res.data.token){
+                    localStorage.setItem("access-token", res.data.token)
+                }
+            })
 
                 console.log(user);
             }
             else {
+                localStorage.removeItem("access-token")
                 console.log("user is not there");
             }
         })

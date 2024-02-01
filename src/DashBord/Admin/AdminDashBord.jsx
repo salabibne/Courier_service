@@ -2,8 +2,8 @@
 const AdminDashBord = () => {
     return (
         <div>
-            <p> Admin DashBord</p>
-            <p>Users</p>
+            <p className="mt-36 text-4xl text-red-700 ml-[290px]"> Admin DashBord</p>
+            
         </div>
     );
 };

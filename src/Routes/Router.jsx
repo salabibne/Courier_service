@@ -10,6 +10,7 @@ import Registration from "../Authentication/Registration";
 import About from "../SharedComponent/About/About";
 import Price from "../Components/Price";
 import DashBord from "../DashBord/DashBord";
+import AdminDashBord from "../DashBord/Admin/AdminDashBord";
 
 const Router  = createBrowserRouter([
     {
@@ -43,7 +44,13 @@ const Router  = createBrowserRouter([
     },
     {
       path:"/dashbord",
-      element:<DashBord></DashBord>
+      element:<DashBord></DashBord>,
+      children:[
+        {
+          path:"/dashbord/adminDashbord",
+          element:<AdminDashBord></AdminDashBord>
+        }
+      ]
     }
   ]);
 
